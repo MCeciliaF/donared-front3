@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 /* Tipografías */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
 body {
     background-color: #ffffff;
     color: #22577A;
     margin: 0 ;
     padding: 0;
-    box-sizing: border-box;
-    
+    box-sizing: border-box;    
 }
 
 h1,
@@ -16,7 +19,7 @@ h3 {
 }
 
 p{
-    font-family: 'elvetica', sans-serif;
+    font-family: 'helvetica', sans-serif;
 }
 a {
     text-decoration: none;
@@ -157,58 +160,40 @@ a {
     transition: 0.3s;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .navbar {
-        flex-wrap: wrap;
-        padding: 0.7rem 1rem;
-    }
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #fff;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        padding: 0;
-        display: none;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-    }
-    .nav-links a, .dropdown {
-        width: 100%;
-        padding: 12px 20px;
-        border-bottom: 1px solid #f0f0f0;
-    }
-    .menu-icon {
-        display: flex;
-    }
-    .menu-toggle:checked + .menu-icon + .nav-links {
-        display: flex;
-    }
-    .dropdown-content {
-        position: static;
-        box-shadow: none;
-        min-width: 100%;
-    }
-    .dropdown:hover .dropdown-content {
-        display: none;
-    }
-    .dropdown .dropdown-content {
-        display: none;
-    }
-    .dropdown:focus-within .dropdown-content,
-    .dropdown:active .dropdown-content {
-        display: block;
-    }
-    .perfil_submenu .submenu {
-        width: 10%;
-        
-    }
+/*categorias*/
+.categorias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #e4e3e3;
+    padding: 1.5rem 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
+    
 }
 
-/* HERO RESPONSIVE */
+.categoria-item {
+    flex: 1 1 100px;
+    max-width: 120px;
+    text-align: center;
+    margin: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.categoria-item p {
+    font-size: 0.95rem;
+    margin: 0;
+    color: #22577A;
+    font-weight: 500;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.categoria-item i:hover, .categoria-item p:hover {
+    transform: scale(1.05);
+    color: #38A3A5;
+}
+
+/*hero*/
 .hero {
     display: flex;
     align-items: center;
@@ -251,6 +236,7 @@ a {
 
 .btn-donar {
     display: inline-block;
+    min-width: 110px;
     margin: 0;
     padding: 0.75rem 1.5rem;
     background-color: #22577A;
@@ -287,46 +273,6 @@ a {
     /*box-shadow: 0 4px 16px rgba(34, 87, 122, 0.10);*/
 }
 
-@media (max-width: 900px) {
-    .hero {
-        flex-direction: column;
-        gap: 24px;
-        padding: 40px 0 20px 0;
-        text-align: center;
-    }
-    .hero-text, .hero-image {
-        align-items: center;
-        text-align: center;
-        padding: 0 10px;
-        margin: 0;
-    }
-    .hero-image img {
-        max-width: 320px;
-    }
-}
-
-/* CELULAR */
-@media (max-width: 600px) {
-    .hero {
-        padding: 24px 0 10px 0;
-        gap: 16px;
-    }
-    .hero-text h1 {
-        font-size: 1.3rem;
-    }
-    .hero-text p {
-        font-size: 1rem;
-    }
-    .hero-image img {
-        max-width: 90vw;
-    }
-    .hero-buttons {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        align-items: center;
-    }
-}
 
 /*como funciona*/
 .como-funciona-contenido{
@@ -364,7 +310,9 @@ a {
     font-size: 3rem;
     margin: 30px 0;
 }
-
+.paso .emoji:hover {
+    color: #38A3A5;
+}
 
 /* Cards Donaciones */
 .donaciones {
@@ -374,7 +322,7 @@ a {
     justify-content: center;
     align-items: flex-start;
     padding: 2rem 0;
-    background: #f9f9f9;
+    background: #fff;
 }
 
 .donaciones-contenido {
@@ -388,34 +336,30 @@ a {
 }
 .donar {
     flex: 1 1 320px;
-    max-width: 340px;
+    max-width: 400px;
     display: flex;
     justify-content: center;
 }
 
+.donaciones-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
 .donar-card {
     background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(34, 87, 122, 0.70);
-    padding: 1.2rem 1rem 1.5rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 260px;
-    width: 100%;
+    border-radius: 10px;    
+    padding: 1rem;
+    text-align: center;
+    box-shadow: #5f5e5e 0px 0px 10px 0px;
     transition: transform 0.2s, box-shadow 0.2s;
-    
 }
-
 .donar-card img {
-    width: 100%;
-    max-width: 220px;
-    min-width: 200px;
-    height: 260px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 8px rgba(56, 163, 165, 0.08);
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
 }
 
 .donar-card h3 {
@@ -453,80 +397,45 @@ a {
     transform: scale(1.05);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .donar {
-        max-width: 90vw;
-    }
-    .donar-card img {
-        max-width: 100%;
-        height: 140px;
-    }
-}
-@media (max-width: 600px) {
-    .donaciones {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-    }
-    .donar {
-        max-width: 98vw;
-    }
-    .donar-card {
-        min-height: 0;
-        padding: 1rem;
-    }
-}
-
 /*quienes somos*/
+
 .quienes_somos-contenido {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 40px;
+    gap: 48px;
+    padding: 48px 38px;
     background: linear-gradient(90deg, #99F1AD 0%, #AFDADB 100%); 
-    padding: 2rem 0;
+
 }
-.quienes_somos-contenido img {
-    margin-left: 200px;
+
+.quienes_somos-joven,
+.quienes_somos-texto {
+    flex: 1 1 0;
+    max-width: 600px;
+    min-width: 0;
 }
-.imagen_planeta {
-    /*height:420px; */
-    height: 220px;
-    width: auto;
+
+.quienes_somos-joven {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quienes_somos-joven img,
+.quienes_somos-img {
     display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 0 auto;
 }
 
 .quienes_somos-texto {
-    flex: 1;
     text-align: left;
-    min-width: 220px;
-}
-
-.quienes_somos-texto h2 {
-    margin-top: 0;
-    color:  #22577A;
-    font-size: 2rem;
-}
-.quienes_somos-texto p {
-    font-size: 1.5rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-}
-
-@media (max-width: 900px) {
-    .quienes_somos-contenido {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-    .quienes_somos-texto {
-        text-align: center;
-    }
-    .imagen_planeta {
-        margin: 0 auto;
-        height: 140px;
-    }
+    font-size: 1.18rem;
+    padding: 0 16px;
 }
 
 /*-------- FOOTER---------*/
@@ -594,80 +503,41 @@ ul {
     color: #fff;
 }
 
-
-/* Media queries */
-@media (max-width: 768px) {
-    .hero {
-        flex-direction: column;
-    }
-
-    .carousel,
-    .hero-text {
-        width: 100vw;
-    }
-
-    .hero-text {
-        padding: 1rem;
-    }
-    .footer {
-        padding: 30px;
-        height: auto;
-    }
-    .footer-content {
-        flex-direction: column;
-        align-items: center;      
-        text-align: center; 
-        max-width: 100%;       
-    }
-    .link .link-redes {
-        line-height: 20px;        
-    }
-    logo-footer ul,
-    .logo-footer ul li {
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        text-align: center;
-        margin-top: 0;
-    }
-}
-
-
-
-/* formularios inicio, registro y donaciones */
-.bodyLogin, .bodyRegistro, .bodyDonar{
-    margin: 0;
-    padding: 0;  
-    background-color: #f5f5f5;  
-    height: 100vh;
+/* FORMULARIOS CENTRADOS Y RESPONSIVE */
+.main-login, .main-registro, .main-formulario {
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
     align-items: center;
+    background: linear-gradient(90deg, #99F1AD 0%, #AFDADB 100%);
+    padding: 0;
+    margin: 0;
     position: relative;
 }
-.logo-login {
-    position: fixed;
-    top: 24px;
-    right: 32px;
-    z-index: 100;
-    display: block;
-}
-.logo-login img {
-    height: 50px;
-    width: auto;
-}
-.main-registro, .main-login, .main-formulario {
+
+.formulario-container {
     width: 100%;
-    max-width: 420px;
-    background: #ffffff;
-    padding: 32px 20px 24px 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(34, 87, 122, 0.10);
-    /*margin: 40px 0;*/
-    margin: 80px 0 40px 0; /* deja espacio arriba para el logo fijo */
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 0;
+    margin: 0;
 }
 
+.formulario-container form {
+    width: 100%;
+    max-width: 420px;
+    background: #fafafa;
+    padding: 28px 20px 24px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(34, 87, 122, 0.10);
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 form {
     display: flex;
     flex-direction: column;
@@ -675,15 +545,15 @@ form {
 }
 
 form h2 {    
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     text-align: center;
     color: #22577A;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
-.formulario label, form label {
+form label {
     font-size: 1rem;
     color: #22577A;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.1rem;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -693,9 +563,8 @@ form input[type="password"],
 form input[type="tel"],
 form select,
 form textarea {
-    /*margin-bottom: 10px;*/
-    padding: 10px;
-    font-size: 16px;
+    padding: 8px;
+    font-size: 14px;
     color: #5f5e5e;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -706,14 +575,52 @@ form textarea {
 
 form input[type="checkbox"] {
     width: auto;
-    margin-right: 10px;
+    margin-right: 8px;
 }
 
-form .textoCheck {
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+.celular-label {
+    min-width: 130px;
+    color: #22577A;
+    font-size: 1rem;
+    margin-bottom: 0%;
+}
+
+.codigoArea {
+    width: 45px;
+    min-width: 40px;
+    text-align: center;
+    /*background: #f3f3f3;*/
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #22577A;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-row input[type="tel"] {
+    flex: 1;
+    height: 36px;
+    font-size: 1rem;
+}
+
+.form-row-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+.textoCheck {
     font-size: 14px;
     color: #333;
 }
-
 form .boton {
     background-color: #22577A;
     color: white;
@@ -745,26 +652,187 @@ form .inicio, form .recuperarCuenta, form .registrarse{
     color: #38A3A5;
 }
 
-/* Responsive para mobile */
-@media (max-width: 600px) {
-    .logo-login {
-        top: 8px;
-        right: 8px;
+/*----------------------------------------------------------------------------------*/
+/* Media queries generales */
+
+@media (max-width: 1280px) {
+    .donaciones-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
-    .logo-login img {
-        height: 36px;
+}
+
+@media (max-width: 900px) {
+    .navbar {
+        flex-wrap: wrap;
+        padding: 0.7rem 1rem;
     }
-    .bodyDonar, .bodyLogin, .bodyRegistro {
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 0;
+        display: none;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    }
+    .nav-links a, .dropdown {
+        width: 100%;
+        padding: 12px 20px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .menu-icon {
+        display: flex;
+    }
+    .menu-toggle:checked + .menu-icon + .nav-links {
+        display: flex;
+    }
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        min-width: 100%;
+    }
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+    .dropdown .dropdown-content {
+        display: none;
+    }
+    .dropdown:focus-within .dropdown-content,
+    .dropdown:active .dropdown-content {
+        display: block;
+    }
+    .perfil_submenu .submenu {
+        width: 10%;
         
-        height: fit-content;
-        padding-left: 20px;
     }
-    .main-login, .main-registro, .main-formulario {
-        padding: 16px 2vw;
-        margin: 60px 0 20px 0;
-        max-width: 98vw;
+    .hero {
+        flex-direction: column;
+        gap: 24px;
+        padding: 40px 0 20px 0;
+        text-align: center;
     }
-    form h2 {
-        font-size: 1.2rem;
+    .hero-text, .hero-image {
+        align-items: center;
+        text-align: center;
+        padding: 0 10px;
+        margin: 0;
     }
+    .hero-image img {
+        max-width: 320px;
+    }
+    .donaciones-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .quienes_somos-contenido {
+        flex-direction: column;
+        gap: 28px;
+        padding: 28px 0;
+        text-align: center;
+    }
+    .quienes_somos-joven,
+    .quienes_somos-texto {
+        max-width: 60vw;
+        width: 100%;
+    }
+    .quienes_somos-texto {
+        text-align: center;
+        font-size: 1.3rem;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+    }
+    .hero-text {
+        padding: 1rem;
+    }
+    .footer {
+        padding: 30px;
+        height: auto;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;      
+        text-align: center; 
+        max-width: 100%;       
+    }
+    .link .link-redes {
+        line-height: 20px;        
+    }
+    .logo-footer ul,
+    .logo-footer ul li {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        text-align: center;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .brand img {
+    height: 35px; 
+    }
+    .categorias {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        align-items: center;
+        gap: 12px;
+        padding: 0.5rem 0.2rem;
+    }
+    .categoria-item {
+        max-width: 90vw;
+        width: 100%;
+        margin: 0.2rem 0;
+    }
+    .categoria-item a i {
+        height: 36px;
+        width: 36px;
+        font-size: 1.5rem;
+        margin-top: 15px;
+    }
+    .categoria-item p {
+        display: none;
+    }
+    .hero {
+        padding: 24px 0 0 0;
+        gap: 16px;
+    }
+    .hero-text h1 {
+        font-size: 1.3rem;
+    }
+    .hero-text p {
+        font-size: 1rem;
+    }
+    .hero-image img {
+        max-width: 90vw;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+    }
+    .donaciones-grid {
+        grid-template-columns: 1fr;
+    }
+    .quienes_somos-joven,
+    .quienes_somos-texto {
+        max-width: 80vw;
+        width: 100%;
+    }
+
+    .quienes_somos-texto {
+        text-align: center;
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
 }
